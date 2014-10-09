@@ -5,15 +5,15 @@ var wangle = require('../../lib'),
 
 var router = wangle();
 
+router.insert('/foo/{id}/baz', true);
+
+console.log(router.nodes[''])
+
 hammer({
     iterations: 10000,
-    before: function (next) {
-        router.insert('/hello/{id}/name', true);
-        next();
-    },
     after: function (results) {
         console.dir(results);
     }
 }).time(function () {
-    router.search('/hello/1/name');
+    router.search('/foo/bar/baz');
 })
