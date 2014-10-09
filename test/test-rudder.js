@@ -58,7 +58,7 @@ test('test', function (t) {
         t.ok(route.path === '/params/{bar}', 'path is correct.');
         t.ok(route.match === '/params/anything', 'match path is correct.');
         t.ok(router.search('/params2/bar/baz'), 'match.');
-        t.ok(router.search('/params2/bar/baz').params.id === 'bar', 'bar param mapped.');
+        t.ok(router.search('/params2/bar/baz').params[0].value === 'bar', 'bar param mapped.');
         t.ok(!router.search('/params'), 'no match.');
     });
 
