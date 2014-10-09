@@ -7,8 +7,6 @@ var router = wangle();
 
 router.insert('/foo/{id}/baz', true);
 
-console.log(router.nodes[''])
-
 hammer({
     iterations: 10000,
     after: function (results) {
