@@ -17,7 +17,7 @@ var routes = [
 hammer({
     iterations: 10000,
     after: function (results) {
-        console.log('\t1. urlrouter.match: %d operations/second. (%dms)', results.ops, (results.time / 1000) / results.iterations);
+        console.log('\t1. urlrouter.match: %d operations/second. (%dms)', results.ops, ((results.time / 1000) / results.iterations).toFixed(5));
     }
 }).time(function () {
     for (var i = 0; i < routes.length; i++) {

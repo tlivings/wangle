@@ -17,7 +17,7 @@ router.insert('/hello/world/{id}', true);
 hammer({
     iterations: 10000,
     after: function (results) {
-        console.log('\t2. paths.search: %d operations/second. (%dms)', results.ops, (results.time / 1000) / results.iterations);
+        console.log('\t2. paths.search: %d operations/second. (%dms)', results.ops, ((results.time / 1000) / results.iterations).toFixed(5));
     }
 }).time(function () {
     router.search('/foo/bar/baz');
