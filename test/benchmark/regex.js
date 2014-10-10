@@ -5,6 +5,8 @@ var createRouter = require('urlrouter/lib/utils').createRouter,
 
 var router = createRouter('/foo/:id/baz');
 
+console.log(router.match('/foo/bar/baz'));
+
 hammer({
     iterations: 10000,
     after: function (results) {
