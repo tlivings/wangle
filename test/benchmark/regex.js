@@ -14,6 +14,8 @@ var routes = [
     createRouter('/goodbye/world/:id')
 ];
 
+console.log(routes[0].match('/foo/bar/baz'));
+
 hammer({
     iterations: 10000,
     after: function (results) {
