@@ -14,12 +14,10 @@ var routes = [
     createRouter('/goodbye/world/:id')
 ];
 
-console.log(routes[0].match('/foo/bar/baz'));
-
 hammer({
     iterations: 10000,
     after: function (results) {
-        console.dir(results);
+        console.log('\t1. urlrouter.match: %d operations/second. (%dms)', results.ops, (results.time / 1000) / results.iterations);
     }
 }).time(function () {
     for (var i = 0; i < routes.length; i++) {
