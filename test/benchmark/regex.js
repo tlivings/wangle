@@ -14,4 +14,4 @@ hammer({
     }
 }).time(function () {
     router.match('/foo/bar/baz');
-})
+});

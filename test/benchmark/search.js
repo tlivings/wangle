@@ -16,4 +16,4 @@ hammer({
     }
 }).time(function () {
     router.search('/foo/bar/baz');
-})
+});
