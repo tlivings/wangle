@@ -3,9 +3,16 @@
 var createRouter = require('urlrouter/lib/utils').createRouter,
     hammer = require('hammertime');
 
-var router = createRouter('/foo/:id/baz');
-
-console.log(router.match('/foo/bar/baz'));
+var routes = [
+    createRouter('/foo/:id/baz'),
+    createRouter('/foo/:id/baz/ball'),
+    createRouter('/foobar/:id'),
+    createRouter('/foobar/:id/baz'),
+    createRouter('/hello/world'),
+    createRouter('/hello/world/:id'),
+    createRouter('/goodbye/world'),
+    createRouter('/goodbye/world/:id')
+];
 
 hammer({
     iterations: 10000,
@@ -13,5 +20,7 @@ hammer({
         console.dir(results);
     }
 }).time(function () {
-    router.match('/foo/bar/baz');
+    for (var i = 0; i < routes.length; i++) {
+        routes[i].match('/foo/bar/baz');
+    }
 });

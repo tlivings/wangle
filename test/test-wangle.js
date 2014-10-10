@@ -17,13 +17,23 @@ test('test', function (t) {
         t.ok(!router.search('/foo'), 'no match.');
     });
 
+    t.test('insert and search overlap', function (t) {
+        t.plan(3);
+
+        router.insert('/foo/bar/baz', true);
+
+        t.ok(router.search('/foo/bar'), 'match.');
+        t.ok(router.search('/foo/bar/baz'), 'match.');
+        t.ok(!router.search('/foo'), 'no match.');
+    });
+
     t.test('insert and search with params', function (t) {
         t.plan(6);
 
-        router.insert('/params/{bar}', function () {
-        });
-        router.insert('/params2/{id}/baz', function () {
-        });
+        router.insert('/params/{bar}', true);
+        router.insert('/params/{bar}/baz', true);
+
+        router.insert('/params2/{id}/baz', true);
 
         var route = router.search('/params/anything');
 

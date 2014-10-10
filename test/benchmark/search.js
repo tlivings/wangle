@@ -6,6 +6,13 @@ var wangle = require('../../lib'),
 var router = wangle();
 
 router.insert('/foo/{id}/baz', true);
+router.insert('/foo/{id}/baz/ball', true);
+router.insert('/foobar/{id}/baz', true);
+router.insert('/foobar/{id}/baz', true);
+router.insert('/hello/world', true);
+router.insert('/hello/world/{id}', true);
+router.insert('/goodbye/world', true);
+router.insert('/hello/world/{id}', true);
 
 console.log(router.search('/foo/bar/baz'));
 
