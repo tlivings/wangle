@@ -45,4 +45,13 @@ test('test', function (t) {
         t.ok(!router.match('/params'), 'no match.');
     });
 
+    t.test('optional params', function (t) {
+        t.plan(2);
+
+        router.add('/optional/{id?}', true);
+
+        t.ok(router.match('/optional'), 'match.');
+        t.ok(router.match('/optional/1'), 'match.');
+    });
+
 });
