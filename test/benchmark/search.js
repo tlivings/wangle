@@ -1,24 +1,24 @@
 'use strict';
 
-var paths = require('../../lib/paths'),
-    hammer = require('hammertime');
+var Router = require('../../lib');
+var Hammer = require('hammertime');
 
-var router = paths();
+var router = Router();
 
-router.insert('/foo/{id}/baz', true);
-router.insert('/foo/{id}/baz/ball', true);
-router.insert('/foobar/{id}/baz', true);
-router.insert('/foobar/{id}/baz', true);
-router.insert('/hello/world', true);
-router.insert('/hello/world/{id}', true);
-router.insert('/goodbye/world', true);
-router.insert('/hello/world/{id}', true);
+router.add('/foo/{id}/baz', true);
+router.add('/foo/{id}/baz/ball', true);
+router.add('/foobar/{id}/baz', true);
+router.add('/foobar/{id}/baz', true);
+router.add('/hello/world', true);
+router.add('/hello/world/{id}', true);
+router.add('/goodbye/world', true);
+router.add('/hello/world/{id}', true);
 
-hammer({
+Hammer({
     iterations: 10000,
     after: function (results) {
         console.log('\t2. paths.search: %d operations/second. (%dms)', results.ops, ((results.time / 1000) / results.iterations).toFixed(5));
     }
 }).time(function () {
-    router.search('/foo/bar/baz');
+    router.match('/foo/bar/baz');
 });

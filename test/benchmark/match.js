@@ -1,20 +1,20 @@
 'use strict';
 
-var createRouter = require('urlrouter/lib/utils').createRouter,
-    hammer = require('hammertime');
+var CreateRouter = require('urlrouter/lib/utils').createRouter;
+var Hammer = require('hammertime');
 
 var routes = [
-    createRouter('/foo/:id/baz'),
-    createRouter('/foo/:id/baz/ball'),
-    createRouter('/foobar/:id'),
-    createRouter('/foobar/:id/baz'),
-    createRouter('/hello/world'),
-    createRouter('/hello/world/:id'),
-    createRouter('/goodbye/world'),
-    createRouter('/goodbye/world/:id')
+    CreateRouter('/foo/:id/baz'),
+    CreateRouter('/foo/:id/baz/ball'),
+    CreateRouter('/foobar/:id'),
+    CreateRouter('/foobar/:id/baz'),
+    CreateRouter('/hello/world'),
+    CreateRouter('/hello/world/:id'),
+    CreateRouter('/goodbye/world'),
+    CreateRouter('/goodbye/world/:id')
 ];
 
-hammer({
+Hammer({
     iterations: 10000,
     after: function (results) {
         console.log('\t1. urlrouter.match: %d operations/second. (%dms)', results.ops, ((results.time / 1000) / results.iterations).toFixed(5));

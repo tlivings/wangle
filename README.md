@@ -1,11 +1,11 @@
 # Usage
 
 ```javascript
-var wangle = require('wangle');
+var Router = require('wangle');
 
-var router = wangle();
+var router = Router();
 
-router.insert('/foo/{id}');
+router.add('/foo/{id}');
 
-router.search('/foo/1'); // => {"path":"/foo/{id}","match":"/foo/1","params":{"id":"1"}}
+router.match('/foo/1'); // => {"path":"/foo/{id}","match":"/foo/1","params":{"id":"1"}}
 ```

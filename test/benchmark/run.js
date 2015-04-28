@@ -1,18 +1,18 @@
 'use strict';
 
-var spawn = require('child_process').spawn,
-    path = require('path');
+var Spawn = require('child_process').spawn;
+var Path = require('path');
 
 var search, match;
 
 console.log('\nurlrouter.match vs paths.search (8 paths registered):');
 
-match = spawn('node', [path.resolve(__dirname, 'match.js')]);
+match = Spawn('node', [Path.resolve(__dirname, 'match.js')]);
 
 match.stdout.pipe(process.stdout);
 
 match.once('close', function () {
-    search = spawn('node', [path.resolve(__dirname, 'search.js')]);
+    search = Spawn('node', [Path.resolve(__dirname, 'search.js')]);
 
     search.stdout.pipe(process.stdout);
 
