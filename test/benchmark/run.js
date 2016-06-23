@@ -5,7 +5,7 @@ var Path = require('path');
 
 var search, match;
 
-console.log('\nurlrouter.match vs paths.search (8 paths registered):');
+console.log('\nurlrouter.match vs paths.search (10 paths registered):');
 
 match = Spawn('node', [Path.resolve(__dirname, 'match.js')]);
 

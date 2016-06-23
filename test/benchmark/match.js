@@ -11,7 +11,9 @@ var routes = [
     CreateRouter('/hello/world'),
     CreateRouter('/hello/world/:id'),
     CreateRouter('/goodbye/world'),
-    CreateRouter('/goodbye/world/:id')
+    CreateRouter('/goodbye/world/:id'),
+    CreateRouter('/bar/baz/:id'),
+    CreateRouter('/bar/baz/:id/bang')
 ];
 
 Hammer({
@@ -21,6 +23,6 @@ Hammer({
     }
 }).time(function () {
     for (var i = 0; i < routes.length; i++) {
-        routes[i].match('/foo/bar/baz');
+        routes[i].match('/bar/baz/123/bang');
     }
 });
